@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TableContainer.css';
+import Modal from './Modal';
+import Toast from './Toast';
 
 const TableContainer = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
+  const [selectedClient, setSelectedClient] = useState(null);
   const clientes = [
     {
       razaoSocial: 'Aço e Construção Material de Primeira S.A.',
@@ -95,8 +100,35 @@ const TableContainer = () => {
     }
   ];
 
+  const handleDeleteClick = (cliente) => {
+    setSelectedClient(cliente);
+    setModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    setModalOpen(false);
+    setToastVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedClient(null);
+  };
+
   return (
     <div className="table-container">
+      <Modal 
+        isOpen={modalOpen}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirmDelete}
+        clientName={selectedClient ? `${selectedClient.codigo} - ${selectedClient.razaoSocial} - ${selectedClient.cnpj}` : ''}
+      />
+      
+      <Toast 
+        message="Cliente desativado com sucesso!"
+        isVisible={toastVisible}
+        onClose={() => setToastVisible(false)}
+      />
       <div className="table-header">
         <div className="table-header-cell flex-1">
           <span>Razão Social / Código</span>
@@ -151,7 +183,7 @@ const TableContainer = () => {
                 </svg>
               </button>
               
-              <button className="action-icon-btn" title="Excluir">
+              <button className="action-icon-btn" title="Excluir" onClick={() => handleDeleteClick(cliente)}>
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                   <path d="M5.5 17.4167C5.5 18.5417 6.41667 19.4583 7.54167 19.4583H14.4583C15.5833 19.4583 16.5 18.5417 16.5 17.4167V7.33334H5.5V17.4167ZM7.54167 9.37501H14.4583V17.4167H7.54167V9.37501ZM14.0417 4.27084L13.0208 3.25001H8.97917L7.95834 4.27084H4.58334V6.31251H17.4167V4.27084H14.0417Z" fill="#008236"/>
                 </svg>
