@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-SOFT - Cadastro de Clientes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        #root {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .cadastral {
+            position: relative;
+            width: 1280px;
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+
+        .background-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: white;
+        }
+
+        .background-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://www.figma.com/api/mcp/asset/1db3ef44-ceb0-4e94-ac7f-55adf2f9b900');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navbar */
+        .navbar-megamenu {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            width: 1280px;
+            background: white;
+            position: relative;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            height: 50px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            height: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding-right: 5px;
+        }
+
+        .logo {
+            height: 40.277px;
+            width: 113px;
+            object-fit: contain;
+        }
+
+        .menu-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 42px;
+            width: 150px;
+            padding: 0 5px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.2s;
+        }
+
+        .menu-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .menu-btn.active {
+            background: #e8f5e9;
+        }
+
+        .menu-icon {
+            width: 27px;
+            height: 27px;
+            flex-shrink: 0;
+        }
+
+        .menu-btn span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+            color: black;
+            text-align: center;
+            letter-spacing: -0.056px;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            height: 100%;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 34px;
+            width: 187px;
+        }
+
+        .search-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .icon-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            height: 100%;
+        }
+
+        .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .icon-btn:hover {
+            opacity: 0.7;
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Page Title */
+        .page-title {
+            display: flex;
+            flex-direction: column;
+            width: 1280px;
+            height: 50px;
+            background: white;
+            border-top: 1px solid #d4d4d4;
+            flex-shrink: 0;
+        }
+
+        .page-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            padding: 0 10px 0 0;
+            min-height: 0;
+            width: 100%;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            background: #008236;
+            padding: 10px 15px;
+            overflow: hidden;
+        }
+
+        .title-section h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 20px;
+            color: white;
+            text-align: center;
+            letter-spacing: -0.056px;
+            margin: 0;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 110px;
+            height: 28px;
+            padding: 0 10px;
+            background: white;
+            border: 1.5px solid #008236;
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.2s;
+        }
+
+        .action-btn:hover {
+            background: #e8f5e9;
+        }
+
+        .action-btn svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .action-btn span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            color: #008236;
+            text-align: center;
+            letter-spacing: 0.24px;
+        }
+
+        .title-divider {
+            width: 100%;
+            height: 0;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .title-divider::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #008236;
+        }
+
+        /* Form Container */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            background: white;
+            width: 1280px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            overflow: hidden;
+        }
+
+        .input-group.flex-1 {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .input-group label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 20px;
+            color: #008236;
+            letter-spacing: -0.048px;
+            margin-bottom: 2px;
+        }
+
+        .select-field,
+        .input-field {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 28px;
+            padding: 0 7px;
+            background: white;
+            border: 1px solid #d4d4d4;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .input-field {
+            cursor: text;
+        }
+
+        .select-field span,
+        .input-field span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 20px;
+            color: #404040;
+            letter-spacing: -0.048px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        .select-field svg {
+            flex-shrink: 0;
+            margin-left: 8px;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 28px;
+            padding: 0 5px;
+            gap: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 14px;
+            height: 14px;
+            border: 1px solid #d4d4d4;
+            border-radius: 50%;
+            cursor: pointer;
+            appearance: none;
+            position: relative;
+            background: white;
+        }
+
+        .radio-option input[type="radio"]:checked {
+            border-color: #008236;
+            background: #008236;
+        }
+
+        .radio-option input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .radio-option span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            color: #404040;
+            text-align: center;
+        }
+
+        /* Table Container */
+        .table-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: flex;
+            align-items: center;
+            width: 1280px;
+            height: 24px;
+            background: #008236;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .table-header-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .table-header-cell.flex-1 {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .table-header-cell.fixed-280 {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        .table-header-cell span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 24px;
+            color: white;
+            text-align: center;
+        }
+
+        .table-header-cell svg {
+            position: absolute;
+            left: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .table-divider {
+            width: 2px;
+            height: 100%;
+            background: white;
+            flex-shrink: 0;
+        }
+
+        .table-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: #ccc;
+            padding: 1px 0;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .table-row {
+            display: flex;
+            align-items: center;
+            width: 1280px;
+            height: 48px;
+            background: white;
+            flex-shrink: 0;
+        }
+
+        .table-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            overflow: hidden;
+            padding: 0 10px 2px 10px;
+        }
+
+        .table-cell.flex-1 {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .table-cell.fixed-280 {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        .table-cell p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 24px;
+            text-align: center;
+            text-transform: uppercase;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cell-primary {
+            color: #404040;
+        }
+
+        .cell-secondary {
+            color: #737373;
+        }
+
+        .table-cell-divider {
+            width: 2px;
+            height: 100%;
+            background: #d4d4d4;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="cadastral">
+            <div class="background-overlay"></div>
+            
+            <!-- Navbar -->
+            <div class="navbar-megamenu">
+                <div class="navbar">
+                    <div class="navbar-left">
+                        <div class="logo-container">
+                            <img src="https://www.figma.com/api/mcp/asset/fc28267e-97e3-4522-9163-a59505fe12b2" alt="H-SOFT Logo" class="logo">
+                        </div>
+                        
+                        <div class="menu-buttons">
+                            <button class="menu-btn menu-btn-cadastros active">
+                                <svg class="menu-icon" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                    <path d="M4.21875 4.21875H10.125V10.125H4.21875V4.21875Z" fill="#008236"/>
+                                    <path d="M3.375 3.375V10.96875H10.96875V3.375H3.375ZM10.96875 13.5H3.375V21.09375H10.96875V13.5ZM13.5 3.375V10.96875H21.09375V3.375H13.5ZM13.5 13.5V21.09375H21.09375V13.5H13.5Z" fill="#008236"/>
+                                </svg>
+                                <span>Cadastros</span>
+                            </button>
+                            
+                            <button class="menu-btn menu-btn-comercial">
+                                <svg class="menu-icon" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                    <path d="M4.21875 4.21875H22.78125V10.96875H4.21875V4.21875Z" fill="#0047CC"/>
+                                    <path d="M3.375 3.375V11.8125H23.625V3.375H3.375ZM5.0625 13.5V21.09375H9.28125V13.5H5.0625ZM11.8125 13.5V21.09375H16.03125V13.5H11.8125ZM18.5625 13.5V21.09375H22.78125V13.5H18.5625Z" fill="#0047CC"/>
+                                </svg>
+                                <span>Comercial</span>
+                            </button>
+                            
+                            <button class="menu-btn menu-btn-financeiro">
+                                <svg class="menu-icon" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                    <path d="M13.5 5.0625C13.5 6.9375 12.375 8.4375 10.6875 8.4375C9 8.4375 7.59375 6.9375 7.59375 5.0625C7.59375 5.0625 9.5625 1.6875 13.5 5.0625Z" fill="#E66400"/>
+                                    <path d="M1.6875 13.5C1.6875 7.3125 6.75 2.53125 13.5 2.53125C20.25 2.53125 25.3125 7.3125 25.3125 13.5C25.3125 19.6875 20.25 24.46875 13.5 24.46875C6.75 24.46875 1.6875 19.6875 1.6875 13.5ZM4.5 13.5C4.5 18.5625 8.4375 21.65625 13.5 21.65625C18.5625 21.65625 22.5 18.5625 22.5 13.5C22.5 8.4375 18.5625 5.34375 13.5 5.34375C8.4375 5.34375 4.5 8.4375 4.5 13.5Z" fill="#E66400"/>
+                                </svg>
+                                <span>Financeiro</span>
+                            </button>
+                            
+                            <button class="menu-btn menu-btn-fiscal">
+                                <svg class="menu-icon" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                    <path d="M3.375 3.375L13.5 7.59375L23.625 3.375" fill="#8300E6"/>
+                                    <path d="M2.53125 2.53125V22.78125H24.46875V2.53125H2.53125ZM22.78125 4.21875V7.59375L13.5 11.8125L4.21875 7.59375V4.21875H22.78125ZM4.21875 10.125L13.5 14.34375L22.78125 10.125V21.09375H4.21875V10.125Z" fill="#8300E6"/>
+                                </svg>
+                                <span>Fiscal</span>
+                            </button>
+                            
+                            <button class="menu-btn menu-btn-relatorios">
+                                <svg class="menu-icon" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                    <path d="M4.21875 4.21875H7.59375V22.78125H4.21875V4.21875Z" fill="#0096B8"/>
+                                    <path d="M3.375 3.375V23.625H24.46875V3.375H3.375ZM5.0625 5.0625H22.78125V21.09375H5.0625V5.0625ZM9.28125 10.125V19.40625H11.8125V10.125H9.28125ZM13.5 7.59375V19.40625H16.03125V7.59375H13.5ZM17.71875 13.5V19.40625H20.25V13.5H17.71875Z" fill="#0096B8"/>
+                                </svg>
+                                <span>Relatórios</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-right">
+                        <div class="search-container">
+                            <button class="search-btn">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                                    <path d="M9.16667 15.5833C12.6644 15.5833 15.5 12.7477 15.5 9.25C15.5 5.75228 12.6644 2.91667 9.16667 2.91667C5.66895 2.91667 2.83334 5.75228 2.83334 9.25C2.83334 12.7477 5.66895 15.5833 9.16667 15.5833Z" stroke="#444455" stroke-width="2"/>
+                                    <path d="M13.75 13.75L19.1667 19.1667" stroke="#444455" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="icon-buttons">
+                            <button class="icon-btn bell-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 3C10.34 3 9 4.34 9 6V7C6.79 7.91 5.25 10.12 5.25 12.75V16.5L3 18.75V19.5H21V18.75L18.75 16.5V12.75C18.75 10.12 17.21 7.91 15 7V6C15 4.34 13.66 3 12 3Z" fill="#E58D00"/>
+                                    <path d="M12 22.5C13.24 22.5 14.25 21.49 14.25 20.25H9.75C9.75 21.49 10.76 22.5 12 22.5Z" fill="#E58D00"/>
+                                </svg>
+                            </button>
+                            
+                            <button class="icon-btn help-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="9" stroke="#C20000" stroke-width="2"/>
+                                    <path d="M12 17.25V17.5M12 14.25C12 13.4216 12.6716 12.75 13.5 12.75C14.3284 12.75 15 12.0784 15 11.25C15 10.4216 14.3284 9.75 13.5 9.75H12.75C11.9216 9.75 11.25 10.4216 11.25 11.25V11.625" stroke="#C20000" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            
+                            <button class="icon-btn settings-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="#444555"/>
+                                    <path d="M19.5 12C19.5 11.5875 19.4625 11.175 19.425 10.7625L21.45 9.225C21.6375 9.075 21.6375 8.85 21.5625 8.625L19.6125 5.4C19.5375 5.175 19.35 5.1 19.125 5.1L16.8 6.075C16.3125 5.7 15.825 5.4 15.3 5.175L14.925 2.7C14.8875 2.4375 14.7 2.25 14.4375 2.25H10.5375C10.275 2.25 10.0875 2.4375 10.05 2.7L9.675 5.175C9.15 5.4 8.6625 5.7 8.175 6.075L5.85 5.1C5.625 5.025 5.4375 5.175 5.3625 5.4L3.4125 8.625C3.3375 8.85 3.3375 9.075 3.525 9.225L5.55 10.7625C5.5125 11.175 5.475 11.5875 5.475 12C5.475 12.4125 5.5125 12.825 5.55 13.2375L3.525 14.775C3.3375 14.925 3.3375 15.15 3.4125 15.375L5.3625 18.6C5.4375 18.825 5.625 18.9 5.85 18.9L8.175 17.925C8.6625 18.3 9.15 18.6 9.675 18.825L10.05 21.3C10.0875 21.5625 10.275 21.75 10.5375 21.75H14.4375C14.7 21.75 14.8875 21.5625 14.925 21.3L15.3 18.825C15.825 18.6 16.3125 18.3 16.8 17.925L19.125 18.9C19.35 18.975 19.5375 18.825 19.6125 18.6L21.5625 15.375C21.6375 15.15 21.6375 14.925 21.45 14.775L19.425 13.2375C19.4625 12.825 19.5 12.4125 19.5 12Z" fill="#444555"/>
+                                </svg>
+                            </button>
+                            
+                            <div class="user-avatar">
+                                <img src="https://www.figma.com/api/mcp/asset/6b43b094-d8fa-43fb-ac9c-6545cb402b88" alt="User Avatar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-wrapper">
+                <!-- Page Title -->
+                <div class="page-title">
+                    <div class="page-title-container">
+                        <div class="title-section">
+                            <h1>CLIENTES</h1>
+                        </div>
+                        
+                        <div class="buttons-container">
+                            <button class="action-btn include-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <rect x="2.5" y="2.5" width="15" height="15" rx="2" stroke="#008236" stroke-width="1.5"/>
+                                    <path d="M10 6.5V13.5M6.5 10H13.5" stroke="#008236" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Incluir</span>
+                            </button>
+                            
+                            <button class="action-btn print-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 6.5V2.5H15V6.5M5 14H4C3.46957 14 2.96086 13.7893 2.58579 13.4142C2.21071 13.0391 2 12.5304 2 12V8C2 7.46957 2.21071 6.96086 2.58579 6.58579C2.96086 6.21071 3.46957 6 4 6H16C16.5304 6 17.0391 6.21071 17.4142 6.58579C17.7893 6.96086 18 7.46957 18 8V12C18 12.5304 17.7893 13.0391 17.4142 13.4142C17.0391 13.7893 16.5304 14 16 14H15M5 11H15V17.5H5V11Z" stroke="#008236" stroke-width="1.5"/>
+                                </svg>
+                                <span>Imprimir</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="title-divider"></div>
+                </div>
+                
+                <!-- Form Container -->
+                <div class="form-container">
+                    <div class="form-row">
+                        <div class="input-group flex-1">
+                            <label>Cliente</label>
+                            <div class="select-field">
+                                <span>10327 - TEC MAIS INFORMATICA E PAPELARIA - 54.658.230/0001-64</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group" style="width: 390px;">
+                            <label>Estado / Cidade</label>
+                            <div class="select-field">
+                                <span>Vila Bela da Santíssima Trindade - TO</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="" style="width: 297px;">
+                            <label>Situação</label>
+                            <div class="select-field">
+                                <span>ATIVO</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group flex-1">
+                            <label>Empresa</label>
+                            <div class="select-field">
+                                <span>3 - jalapao tecnologia e sistemas ltda - 89.564.159/0001-30</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group" style="width: 490px;">
+                            <label>E-mail</label>
+                            <div class="input-field">
+                                <span>compras@supritec.com.br</span>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group" style="width: 297px;">
+                            <label>Celular</label>
+                            <div class="input-field">
+                                <span>(63) 98123 - 4455</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group flex-1">
+                            <label>Vendedor</label>
+                            <div class="select-field">
+                                <span>46 - saulo carvalho neto - 598.366.428-44</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group" style="width: 189.5px;">
+                            <label>Grupo</label>
+                            <div class="select-field">
+                                <span>varejo</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group" style="width: 189.5px;">
+                            <label>Rota</label>
+                            <div class="select-field">
+                                <span>nordeste</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group" style="width: 298px;">
+                            <label>Tipo</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="tipo" value="fisica">
+                                    <span>Física</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="tipo" value="juridica">
+                                    <span>Jurídica</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="tipo" value="todos" checked>
+                                    <span>Todos</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Table Container -->
+                <div class="table-container">
+                    <div class="table-header">
+                        <div class="table-header-cell flex-1">
+                            <span>Razão Social / Código</span>
+                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none">
+                                <path d="M0 0L5 5L10 0H0Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="table-divider"></div>
+                        <div class="table-header-cell flex-1">
+                            <span>Nome Fantasia / CPF ou CNPJ</span>
+                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none">
+                                <path d="M0 0L5 5L10 0H0Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="table-divider"></div>
+                        <div class="table-header-cell fixed-280">
+                            <span>Cidade / Estado</span>
+                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none">
+                                <path d="M0 0L5 5L10 0H0Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="table-divider"></div>
+                        <div class="table-header-cell fixed-280">
+                            <span>Telefone / E-mail</span>
+                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none">
+                                <path d="M0 0L5 5L10 0H0Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="table-rows">
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Aço e Construção Material de Primeira S.A.</p>
+                                <p class="cell-secondary">CÓD: 1502</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Aço e Construção Ltda</p>
+                                <p class="cell-secondary">CNPJ: 12.345.678/0001-90</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">São Paulo</p>
+                                <p class="cell-secondary">São Paulo</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(11) 3456-7890 | (11) 98520-0874</p>
+                                <p class="cell-secondary">contato@acoeonstrucao.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Café Premium Brasil Importação e Exportação Ltda</p>
+                                <p class="cell-secondary">CÓD: 805</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Café Premium Brasil</p>
+                                <p class="cell-secondary">CNPJ: 23.456.789/0001-01</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">belo horizonte</p>
+                                <p class="cell-secondary">minas gerais</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(31) 2234 - 5678 | (31) 99876-5432</p>
+                                <p class="cell-secondary">vendas@cafepremium.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Consultoria Digital Plus Tecnologia e Serviços S.A.</p>
+                                <p class="cell-secondary">CÓD: 10568</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Consultoria Digital Plus</p>
+                                <p class="cell-secondary">CNPJ: 34.567.890/0001-12</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">Rio de Janeiro</p>
+                                <p class="cell-secondary">Rio de Janeiro</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(21) 3456 - 7890 | (21) 98765-6543</p>
+                                <p class="cell-secondary">info@consultoriadigital.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">carlos moura silva</p>
+                                <p class="cell-secondary">CÓD: 659</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary"></p>
+                                <p class="cell-secondary">cpf: 795.500.123-78</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">Campinas</p>
+                                <p class="cell-secondary">São Paulo</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(19) 3567 - 8901 | (19) 99876-7654</p>
+                                <p class="cell-secondary">carlos.m@hotmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Fitness Premium Club Academia e Wellness Ltda</p>
+                                <p class="cell-secondary">CÓD: 2077</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Fitness Premium Club</p>
+                                <p class="cell-secondary">CNPJ: 56.789.012/0001-34</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">Belo Horizonte</p>
+                                <p class="cell-secondary">minas gerais</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(31) 3678 - 9012 | (31) 98765-8765</p>
+                                <p class="cell-secondary">academia@fitnesspremium.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">joao ricardo souto</p>
+                                <p class="cell-secondary">CÓD: 365</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary"></p>
+                                <p class="cell-secondary">CPF: 335.854.620-00</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">Curitiba</p>
+                                <p class="cell-secondary">paraná</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(41) 3789 - 0123 | (41) 99876-9876</p>
+                                <p class="cell-secondary">jricardosouto@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Logística Integrada Brasil Transportes e Distribuição S.A.</p>
+                                <p class="cell-secondary">CÓD: 4690</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">logistica integrada</p>
+                                <p class="cell-secondary">CNPJ: 11.882.936/0001-00</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">Santos</p>
+                                <p class="cell-secondary">são paulo</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(13) 3890 - 1234 | (13) 98765-0987</p>
+                                <p class="cell-secondary">logistica@integradalogistica.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Pharma Solutions Indústria Farmacêutica Ltda</p>
+                                <p class="cell-secondary">CÓD: 6670</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Pharma Solutions</p>
+                                <p class="cell-secondary">CNPJ: 89.012.345/0001-67</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">São Bernardo do Campo</p>
+                                <p class="cell-secondary">são paulo</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(11) 3901 - 2345 | (11) 99876-1098</p>
+                                <p class="cell-secondary">compras@pharmasolutions.com.br</p>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Restaurante Sabor Caseiro Alimentação Ltda</p>
+                                <p class="cell-secondary">CÓD: 901</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell flex-1">
+                                <p class="cell-primary">Restaurante Sabor Caseiro</p>
+                                <p class="cell-secondary">CNPJ: 90.123.456/0001-78</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">Salvador</p>
+                                <p class="cell-secondary">Bahia</p>
+                            </div>
+                            <div class="table-cell-divider"></div>
+                            <div class="table-cell fixed-280">
+                                <p class="cell-primary">(71) 3012 - 3456 | (71) 99876-2109</p>
+                                <p class="cell-secondary">reservas@saborcaseiro.com.br</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
