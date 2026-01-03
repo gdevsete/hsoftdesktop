@@ -1,24 +1,24 @@
 import React from 'react';
 import './FormContainer.css';
 
-const FormContainer = () => {
+const UsuariosFilters = () => {
   return (
     <div className="form-container">
       <div className="form-row">
         <div className="input-group primary-field-width">
-          <label>Cliente</label>
+          <label>Usuário</label>
           <div className="select-field">
-            <span>10327 - TEC MAIS INFORMATICA E PAPELARIA - 54.658.230/0001-64</span>
+            <span>8 - JOAO GUIMARAES - 507.528.990-10</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
         
-        <div className="input-group" style={{width: '450px'}}>
+        <div className="input-group" style={{width: '390px'}}>
           <label>Estado / Cidade</label>
           <div className="select-field">
-            <span>Vila Bela da Santíssima Trindade - TO</span>
+            <span>PALMAS - TO</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -35,64 +35,44 @@ const FormContainer = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="form-row">
         <div className="input-group primary-field-width">
           <label>Empresa</label>
           <div className="select-field">
-            <span>3 - jalapao tecnologia e sistemas ltda - 89.564.159/0001-30</span>
+            <span>1 - PALMAS TEC DISTRIBUIDORA LTDA - ME - 31.552.007/0001-90</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
-        
-        <div className="input-group" style={{width: '450px'}}>
-          <label>E-mail</label>
+
+        <div className="input-group" style={{width: '390px'}}>
+          <label>Email</label>
           <div className="input-field">
-            <span>compras@supritec.com.br</span>
+            <span>joao.guimaraes@palmastec.com.br</span>
           </div>
         </div>
-        
+
         <div className="input-group" style={{width: '297px'}}>
           <label>Celular</label>
           <div className="input-field">
-            <span>(63) 98123 - 4455</span>
+            <span>(63) 99920-6341</span>
           </div>
         </div>
       </div>
-      
+
       <div className="form-row">
-        <div className="input-group primary-field-width">
-          <label>Vendedor</label>
+        <div className="input-group" style={{width: '553px'}}>
+          <label>Equipe</label>
           <div className="select-field">
-            <span>46 - saulo carvalho neto - 598.366.428-44</span>
+            <span>1 - VENDAS</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
-        
-        <div className="input-group" style={{width: '220px'}}>
-          <label>Grupo</label>
-          <div className="select-field">
-            <span>varejo</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        
-        <div className="input-group" style={{width: '220px'}}>
-          <label>Rota</label>
-          <div className="select-field">
-            <span>nordeste</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M5 7.5L10 12.5L15 7.5" stroke="#008236" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div>
-        
+
         <div className="input-group" style={{width: '298px'}}>
           <label>Tipo</label>
           <div className="radio-group">
@@ -115,4 +95,4 @@ const FormContainer = () => {
   );
 };
 
-export default FormContainer;
+export default UsuariosFilters;

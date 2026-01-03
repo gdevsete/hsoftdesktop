@@ -11,7 +11,7 @@
 
 .form-row {
   display: flex;
-  gap: 10px;
+  gap: 2px;
   align-items: flex-end;
   width: 100%;
 }
@@ -21,6 +21,40 @@
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
+}
+
+/* Ajuste a largura dos campos Cliente, Empresa e Vendedor aqui */
+.primary-field-width {
+  flex: 1;
+  min-width: 500px;  /* Define largura mínima - Vendedor não diminuirá abaixo deste valor */
+}
+
+/* Ajuste APENAS o select-field de Cliente, Empresa e Vendedor aqui */
+.primary-field-width .select-field {
+  width: 100%;  /* ou 95%, 100% */
+}
+
+/* Ajuste os campos fixos aqui - aumente os valores px para aumentar */
+/* Estado/Cidade e E-mail (390px cada) */
+.input-group[style*="390px"] .select-field,
+.input-group[style*="390px"] .input-field {
+  width: 100%;  /* Já ocupa todo espaço. Aumente 390px no JS para aumentar */
+}
+
+/* Situação e Celular (297px cada) */
+.input-group[style*="297px"] .select-field,
+.input-group[style*="297px"] .input-field {
+  width: 100%;  /* Já ocupa todo espaço. Aumente 297px no JS para aumentar */
+}
+
+/* Grupo e Rota (189.5px cada) */
+.input-group[style*="189.5px"] .select-field {
+  width: 100%;  /* Já ocupa todo espaço. Aumente 189.5px no JS para aumentar */
+}
+
+/* Tipo (298px) */
+.input-group[style*="298px"] .radio-group {
+  width: 100%;  /* Já ocupa todo espaço. Aumente 298px no JS para aumentar */
 }
 
 .input-group.flex-1 {

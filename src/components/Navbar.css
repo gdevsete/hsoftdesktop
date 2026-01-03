@@ -153,3 +153,171 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Megamenu Cadastros */
+.megamenu-cadastros {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #CCFAE3;
+  border-top: 2px solid #008236;
+  border-bottom: 2px solid #008236;
+  padding: 10px 50px;
+  display: flex;
+  gap: 10px;
+  z-index: 99;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.megamenu-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.megamenu-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 20px;
+  color: #008236;
+  text-align: center;
+  letter-spacing: -0.044px;
+  padding: 0 10px;
+}
+
+.megamenu-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.megamenu-item {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #404040;
+  text-align: center;
+  letter-spacing: -0.048px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+  text-decoration: none;
+  display: block;
+}
+
+.megamenu-item:hover {
+  background: rgba(0, 130, 54, 0.1);
+}
+
+/* Megamenu Financeiro */
+.megamenu-financeiro {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #FAE0CC;
+  border-top: 2px solid #E66400;
+  border-bottom: 2px solid #E66400;
+  padding: 10px 50px;
+  display: flex;
+  gap: 10px;
+  z-index: 99;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.megamenu-financeiro .megamenu-section-title {
+  color: #E66400;
+}
+
+.megamenu-financeiro .megamenu-item:hover {
+  background: rgba(230, 100, 0, 0.1);
+}
+
+/* Megamenu Fiscal */
+.megamenu-fiscal {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #E6CCFA;
+  border-top: 2px solid #8300E6;
+  border-bottom: 2px solid #8300E6;
+  padding: 10px 50px;
+  display: flex;
+  gap: 10px;
+  z-index: 99;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.megamenu-fiscal .megamenu-section-title {
+  color: #8300E6;
+}
+
+.megamenu-fiscal .megamenu-item:hover {
+  background: rgba(131, 0, 230, 0.1);
+}
+
+/* Active states for menu buttons */
+.menu-btn-cadastros.active {
+  background: #008236;
+  color: white;
+}
+
+.menu-btn-cadastros.active .menu-icon {
+  filter: brightness(0) invert(1);
+}
+
+.menu-btn-financeiro.active {
+  background: #E66400;
+  color: white;
+}
+
+.menu-btn-financeiro.active .menu-icon {
+  filter: brightness(0) invert(1);
+}
+
+.menu-btn-fiscal.active {
+  background: #8300E6;
+  color: white;
+}
+
+.menu-btn-fiscal.active .menu-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Megamenu Relatórios */
+.megamenu-relatorios {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #CCF2FA;
+  border-top: 2px solid #0096B8;
+  border-bottom: 2px solid #0096B8;
+  padding: 10px 50px;
+  display: flex;
+  gap: 10px;
+  z-index: 99;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.megamenu-relatorios .megamenu-section-title {
+  color: #0096B8;
+}
+
+.megamenu-relatorios .megamenu-item:hover {
+  background: rgba(0, 150, 184, 0.1);
+}
+
+.menu-btn-relatorios.active {
+  background: #0096B8;
+  color: white;
+}
+
+.menu-btn-relatorios.active .menu-icon {
+  filter: brightness(0) invert(1);
+}

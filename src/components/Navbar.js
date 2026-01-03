@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../icons/logo.svg';
 import addressBookTabs from '../icons/address-book-tabs.svg';
@@ -11,6 +12,8 @@ import question from '../icons/menu-btn-side-question.svg';
 import gearSix from '../icons/menu-btn-side-gear-six.svg';
 
 const Navbar = () => {
+  const [activeMenu, setActiveMenu] = useState(null);
+
   return (
     <div className="navbar-megamenu">
       <div className="navbar">
@@ -24,7 +27,11 @@ const Navbar = () => {
           </div>
           
           <div className="menu-buttons">
-            <button className="menu-btn menu-btn-cadastros active">
+            <button 
+              className={`menu-btn menu-btn-cadastros ${activeMenu === 'cadastros' ? 'active' : ''}`}
+              onMouseEnter={() => setActiveMenu('cadastros')}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
               <img src={addressBookTabs} alt="" className="menu-icon" />
               <span>Cadastros</span>
             </button>
@@ -34,17 +41,29 @@ const Navbar = () => {
               <span>Comercial</span>
             </button>
             
-            <button className="menu-btn menu-btn-financeiro">
+            <button 
+              className={`menu-btn menu-btn-financeiro ${activeMenu === 'financeiro' ? 'active' : ''}`}
+              onMouseEnter={() => setActiveMenu('financeiro')}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
               <img src={financeiro} alt="" className="menu-icon" />
               <span>Financeiro</span>
             </button>
             
-            <button className="menu-btn menu-btn-fiscal">
+            <button 
+              className={`menu-btn menu-btn-fiscal ${activeMenu === 'fiscal' ? 'active' : ''}`}
+              onMouseEnter={() => setActiveMenu('fiscal')}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
               <img src={bank} alt="" className="menu-icon" />
               <span>Fiscal</span>
             </button>
             
-            <button className="menu-btn menu-btn-relatorios">
+            <button 
+              className={`menu-btn menu-btn-relatorios ${activeMenu === 'relatorios' ? 'active' : ''}`}
+              onMouseEnter={() => setActiveMenu('relatorios')}
+              onMouseLeave={() => setActiveMenu(null)}
+            >
               <img src={chartBar} alt="" className="menu-icon" />
               <span>Relatórios</span>
             </button>
@@ -85,6 +104,207 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Megamenu para Cadastros */}
+      {activeMenu === 'cadastros' && (
+        <div 
+          className="megamenu-cadastros"
+          onMouseEnter={() => setActiveMenu('cadastros')}
+          onMouseLeave={() => setActiveMenu(null)}
+        >
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Cadastros</div>
+            <div className="megamenu-items">
+              <Link to="/clientes" className="megamenu-item">Cliente</Link>
+              <Link to="/usuarios" className="megamenu-item">Usuário</Link>
+              <Link to="/empresas" className="megamenu-item">Empresa</Link>
+              <Link to="/fornecedores" className="megamenu-item">Fornecedor</Link>
+                <Link to="/transportadoras" className="megamenu-item">Transportadora</Link>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Produtos</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Produtos</div>
+              <div className="megamenu-item">Acerto de Estoque</div>
+              <div className="megamenu-item">Entrada e Saída Manual</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Sub-section Title</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Sub-section Title</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Sub-section Title</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Megamenu para Financeiro */}
+      {activeMenu === 'financeiro' && (
+        <div 
+          className="megamenu-financeiro"
+          onMouseEnter={() => setActiveMenu('financeiro')}
+          onMouseLeave={() => setActiveMenu(null)}
+        >
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Contas a Receber</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Contas a Receber</div>
+              <div className="megamenu-item">Crédito Cliente</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Contas a Pagar</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Contas a Pagar</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Boletos</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Remessa de Boletos</div>
+              <div className="megamenu-item">Retorno de Boletos</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Banco</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Cadastro Bancário</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Sub-section Title</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Megamenu para Fiscal */}
+      {activeMenu === 'fiscal' && (
+        <div 
+          className="megamenu-fiscal"
+          onMouseEnter={() => setActiveMenu('fiscal')}
+          onMouseLeave={() => setActiveMenu(null)}
+        >
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Notas</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Documentos Fiscais</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Entrada</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Entrada de Nota</div>
+              <div className="megamenu-item">Formação de Preço</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Ajuste</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Naturezas de Operação</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Banco</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Sub-section Title</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Megamenu para Relatórios */}
+      {activeMenu === 'relatorios' && (
+        <div 
+          className="megamenu-relatorios"
+          onMouseEnter={() => setActiveMenu('relatorios')}
+          onMouseLeave={() => setActiveMenu(null)}
+        >
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Análise de Produtos</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section-item</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Entrada</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Boletos</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Banco</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+
+          <div className="megamenu-section">
+            <div className="megamenu-section-title">Sub-section Title</div>
+            <div className="megamenu-items">
+              <div className="megamenu-item">Sub-section Item</div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,1142 @@
+/* CadastrarFornecedorForm - Mesmo padrão de CadastrarCliente */
+
+.cadastrar-fornecedor-form {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: white;
+  position: relative;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: white;
+  flex-shrink: 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 48px;
+}
+
+.input-wrapper label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #008236;
+  letter-spacing: -0.048px;
+  margin-bottom: 2px;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  background: white;
+  text-transform: uppercase;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+  outline: none;
+  border-color: #008236;
+  background: #f9fff8;
+}
+
+.input-wrapper input:disabled {
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.disabled-input {
+  background: #f5f5f5 !important;
+  color: #999 !important;
+  cursor: not-allowed !important;
+}
+
+/* Input with Isento (RG/IE) */
+.input-with-isento {
+  position: relative;
+}
+
+.input-container-isento {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  background: white;
+  overflow: hidden;
+}
+
+.input-container-isento input[type="text"] {
+  border: none;
+  border-radius: 0;
+  flex: 1;
+  height: 100%;
+  padding: 0 7px;
+  margin: 0;
+}
+
+.isento-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: black;
+  white-space: nowrap;
+  background: white;
+}
+
+.isento-checkbox {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Inner Section com Tabs */
+.inner-section {
+  background: white;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inner-menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inner-menu {
+  display: flex;
+  padding: 0 10px;
+}
+
+.inner-menu-item {
+  background: white;
+  color: #404040;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 2px 10px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.inner-menu-item.active {
+  background: #008236;
+  color: white;
+}
+
+.inner-menu-item:hover:not(.active) {
+  background: #f5f5f5;
+}
+
+.inner-menu-border {
+  width: 100%;
+  height: 1px;
+  background: #008236;
+}
+
+/* Inner Form */
+.inner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 10px;
+}
+
+/* Botão Adicionar */
+.btn-add {
+  background: #008236;
+  color: white;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.btn-add:hover {
+  background: #006b2d;
+}
+
+.btn-cancel {
+  background: white;
+  color: #008236;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1.5px solid #008236;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.btn-cancel:hover {
+  background: #f5f5f5;
+}
+
+/* Inner Table Container */
+.inner-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Inner Table Header */
+.inner-table-header {
+  background: white;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.inner-table-header .inner-table-cell {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  color: #008236;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+/* Inner Divider */
+.inner-divider {
+  width: 1px;
+  height: 24px;
+  background: #d4d4d4;
+  flex-shrink: 0;
+}
+
+/* Inner Table Body */
+.inner-table-body {
+  background: #d4d4d4;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: auto;
+  max-height: 300px;
+}
+
+/* Inner Table Row */
+.inner-table-row {
+  background: white;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.inner-table-row .inner-table-cell {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.inner-table-row .inner-divider {
+  height: 32px;
+}
+
+/* --- TELEFONE TAB --- */
+.telefone-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px 10px 10px;
+}
+
+.telefone-form-section {
+  padding: 10px 0 15px 0;
+  border-bottom: 1px solid #d4d4d4;
+  margin-bottom: 5px;
+}
+
+.telefone-form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 6px;
+  align-items: flex-end;
+}
+
+.telefone-add-row {
+  justify-content: flex-end;
+  margin-bottom: 0;
+  padding-top: 4px;
+}
+
+.telefone-form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 120px;
+}
+
+.telefone-label {
+  color: #008236;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.telefone-form-group input,
+.telefone-form-group select {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+  background: white;
+}
+
+.telefone-form-group input:focus,
+.telefone-form-group select:focus {
+  outline: none;
+  border-color: #008236;
+  background: #f9fff8;
+}
+
+.telefone-add-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 96px;
+}
+
+.add-telefone-btn {
+  height: 28px;
+  min-width: 96px;
+  padding: 0 16px;
+  background: #008236;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.048px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.add-telefone-btn:hover {
+  background: #016630;
+}
+
+.add-telefone-btn:active {
+  background: #005725;
+}
+
+.telefone-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  border: 1px solid #d4d4d4;
+}
+
+.telefone-table-header {
+  display: flex;
+  width: 100%;
+  height: 24px;
+  background: white;
+  border-bottom: 1px solid #d4d4d4;
+  align-items: center;
+}
+
+.telefone-header-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 4px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.telefone-header-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #008236;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.telefone-header-icon {
+  width: 9.417px;
+  height: 4.667px;
+  flex-shrink: 0;
+}
+
+.telefone-header-divider {
+  width: 1px;
+  height: 24px;
+  background: #d4d4d4;
+  flex-shrink: 0;
+}
+
+.telefone-table-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.telefone-table-row {
+  display: flex;
+  width: 100%;
+  height: 32px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+}
+
+.telefone-table-row:last-child {
+  border-bottom: none;
+}
+
+.telefone-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.telefone-cell-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #404040;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.telefone-cell-divider {
+  width: 1px;
+  height: 32px;
+  background: #d4d4d4;
+  flex-shrink: 0;
+}
+
+/* --- EMAIL TAB --- */
+.email-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px 10px 10px;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.email-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.email-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.email-label {
+  color: #008236;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.email-field input {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #404040;
+  background: white;
+}
+
+.email-field input:focus {
+  outline: none;
+  border-color: #008236;
+  background: #f9fff8;
+}
+
+.fornecedor-email-checkboxes {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  column-gap: 24px !important;
+  row-gap: 8px !important;
+  margin: 8px 0 14px 0 !important;
+  align-items: center !important;
+  padding-left: 4px !important;
+}
+
+.fornecedor-email-checkbox {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  color: #404040 !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.fornecedor-email-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #008236;
+  margin: 0 4px 0 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.fornecedor-email-checkbox span {
+  user-select: none !important;
+  line-height: 18px !important;
+}
+
+.email-add-row {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 6px;
+}
+
+.add-email-btn {
+  height: 28px;
+  min-width: 96px;
+  padding: 0 16px;
+  background: #008236;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.048px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.add-email-btn:hover {
+  background: #016630;
+}
+
+.add-email-btn:active {
+  background: #005725;
+}
+
+.email-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  border: 1px solid #d4d4d4;
+}
+
+.email-table-header {
+  display: flex;
+  width: 100%;
+  height: 24px;
+  background: white;
+  border-bottom: 1px solid #d4d4d4;
+  align-items: center;
+}
+
+.email-header-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 4px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.email-header-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #008236;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.email-header-icon {
+  width: 9.417px;
+  height: 4.667px;
+  flex-shrink: 0;
+}
+
+.email-header-divider {
+  width: 1px;
+  height: 24px;
+  background: #d4d4d4;
+  flex-shrink: 0;
+}
+
+.email-table-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.email-table-row {
+  display: flex;
+  width: 100%;
+  height: 32px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+}
+
+.email-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.email-cell-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #404040;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.email-cell-divider {
+  width: 1px;
+  height: 32px;
+  background: #d4d4d4;
+  flex-shrink: 0;
+}
+
+.email-status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.email-status-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Input with icon (calendar) */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-with-icon input {
+  flex: 1;
+  padding-right: 32px;
+}
+
+.calendar-icon-btn {
+  position: absolute;
+  right: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-icon-btn:hover {
+  opacity: 0.8;
+}
+
+.calendar-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Form Field Styles for Complemento Tab */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 48px;
+  position: relative;
+}
+
+.form-field label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #008236 !important;
+  letter-spacing: -0.048px;
+  margin-bottom: 2px;
+}
+
+.form-field input,
+.form-field select {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  background: white;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 7.5L10 10L12.5 7.5' stroke='%23008236' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 20px 20px;
+  padding-right: 28px;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: #008236;
+  background-color: white;
+}
+
+.form-field input:disabled {
+  background: #f5f5f5;
+  color: #404040;
+  cursor: not-allowed;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: #008236;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 28px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: -0.048px;
+}
+
+.btn-primary:hover {
+  background: #006b2d;
+}
+
+.btn-secondary {
+  background: white;
+  color: #008236;
+  border: 1.5px solid #008236;
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 28px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: -0.048px;
+}
+
+.btn-secondary:hover {
+  background: #f0f9f4;
+}
+
+/* Success Toast */
+.success-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #b9f8cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  animation: slideUp 0.3s ease-out;
+}
+
+.success-toast svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.success-toast p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #016630;
+  margin: 0;
+  white-space: nowrap;
+}
+
+@keyframes slideUp {
+  from {
+    bottom: 40px;
+    opacity: 0;
+  }
+  to {
+    bottom: 80px;
+    opacity: 1;
+  }
+}
+
+/* Input with Calendar Icon */
+.input-with-calendar {
+  position: relative;
+}
+
+.input-calendar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-calendar-container input {
+  width: 100%;
+  padding-right: 32px;
+}
+
+.calendar-icon-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.calendar-icon-btn:hover {
+  opacity: 0.7;
+}
+
+/* Estilos para CadastrarUsuarioForm */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-group label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #008236;
+  letter-spacing: -0.048px;
+}
+
+.input-field,
+.select-field,
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  background: white;
+  padding: 0 7px;
+}
+
+.input-field input,
+.select-field select {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  padding: 0;
+}
+
+.input-field input:focus,
+.select-field select:focus {
+  outline: none;
+}
+
+.checkbox-wrapper {
+  padding: 0 7px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+}
+
+.checkbox-label input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  gap: 2px;
+  padding: 0 10px;
+  background: white;
+  border-bottom: 1px solid #008236;
+  flex-shrink: 0;
+}
+
+.tab {
+  padding: 8px 12px;
+  background: white;
+  border: none;
+  color: #404040;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.tab:hover {
+  background: #f5f5f5;
+}
+
+.tab.active {
+  border-bottom-color: #008236;
+}
+
+/* Tab Content */
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Endereco Table */
+.endereco-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  border: 1px solid #d4d4d4;
+  margin-top: 10px;
+}
+
+.endereco-table-header {
+  display: flex;
+  width: 100%;
+  height: 24px;
+  background: #008236;
+  border-bottom: 1px solid #d4d4d4;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.endereco-table-header .table-header-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  padding: 0 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.endereco-table-header .table-header-cell:last-child {
+  border-right: none;
+}
+
+.endereco-table-body {
+  background: #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.endereco-table-row {
+  background: white;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.endereco-table-row.empty {
+  background: white;
+}
+
+.endereco-table-row .table-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  padding: 0 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-right: 1px solid #d4d4d4;
+}
+
+.endereco-table-row .table-cell:last-child {
+  border-right: none;
+}
+
+/* Button Adicionar */
+.btn-add-endereco {
+  height: 28px;
+  padding: 0 12px;
+  background: #008236;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  align-self: flex-end;
+}
+
+.btn-add-endereco:hover {
+  background: #006b2d;
+}
+
+.btn-add-endereco:active {
+  background: #005725;
+}

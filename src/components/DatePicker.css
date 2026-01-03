@@ -1,0 +1,240 @@
+.datepicker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.datepicker-container {
+  background: #e6e6e6;
+  width: 680px;
+  height: auto;
+  max-height: 373px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.datepicker-main {
+  display: flex;
+  gap: 1px;
+  height: 325px;
+  background: #e6e6e6;
+}
+
+.datepicker-sidebar {
+  background: white;
+  width: 118px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.datepicker-select-item {
+  font-weight: normal;
+  text-transform: none;
+}
+
+.datepicker-quick-option {
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.datepicker-quick-option:hover {
+  background: #f5f5f5;
+}
+
+.datepicker-calendars {
+  flex: 1;
+  display: flex;
+  gap: 1px;
+  background: #e6e6e6;
+}
+
+.datepicker-calendar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px;
+  margin-bottom: 4px;
+}
+
+.datepicker-nav-btn {
+  width: 26px;
+  height: 26px;
+  border: 0.867px solid #d4d4d4;
+  border-radius: 4px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.datepicker-nav-btn:hover {
+  background: #f5f5f5;
+}
+
+.datepicker-month,
+.datepicker-year {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  line-height: 20px;
+  letter-spacing: -0.048px;
+}
+
+.datepicker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+}
+
+.datepicker-weekday {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  text-align: center;
+  line-height: 20px;
+  letter-spacing: -0.048px;
+}
+
+.datepicker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 4px;
+  padding: 4px 8px 8px 8px;
+  flex: 1;
+}
+
+.datepicker-day {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+  background: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 20px;
+  letter-spacing: -0.048px;
+  text-align: center;
+}
+
+.datepicker-day:hover {
+  background: #f5f5f5;
+}
+
+.datepicker-day.other-month {
+  color: #808080;
+}
+
+.datepicker-footer {
+  background: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 48px;
+}
+
+.datepicker-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.datepicker-input {
+  width: 100px;
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.048px;
+}
+
+.datepicker-separator {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: black;
+  letter-spacing: -0.048px;
+}
+
+.datepicker-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.datepicker-btn {
+  width: 71px;
+  height: 28px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: -0.048px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.datepicker-btn-cancel {
+  background: white;
+  color: #008236;
+  border: 1.5px solid #008236;
+}
+
+.datepicker-btn-cancel:hover {
+  background: #f5f5f5;
+}
+
+.datepicker-btn-ok {
+  background: #008236;
+  color: white;
+}
+
+.datepicker-btn-ok:hover {
+  background: #016630;
+}

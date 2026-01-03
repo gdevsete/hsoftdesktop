@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Toast.css';
 
-const Toast = ({ message, isVisible, onClose }) => {
+const Toast = ({ message, isVisible, onClose, position = 'top-right' }) => {
   useEffect(() => {
     if (isVisible) {
       const timer = setTimeout(() => {
@@ -13,8 +13,10 @@ const Toast = ({ message, isVisible, onClose }) => {
 
   if (!isVisible) return null;
 
+  const containerClass = `toast-container toast-${position}`;
+
   return (
-    <div className="toast-container">
+    <div className={containerClass}>
       <div className="toast">
         <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
           <circle cx="8.5" cy="8.5" r="7.3" stroke="#016630" strokeWidth="1.4"/>

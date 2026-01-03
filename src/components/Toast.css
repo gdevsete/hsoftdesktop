@@ -1,9 +1,18 @@
 .toast-container {
   position: fixed;
-  top: 80px;
-  right: 20px;
   z-index: 2000;
   animation: slideIn 0.3s ease-out;
+}
+
+.toast-top-right {
+  top: 80px;
+  right: 20px;
+}
+
+.toast-bottom-center {
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
 }
 
 @keyframes slideIn {

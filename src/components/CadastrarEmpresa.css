@@ -1,0 +1,1138 @@
+/* --- EMAIL ABA --- */
+.aba-email-empresa {
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.email-form-section {
+  padding: 10px 0 15px 0;
+  border-bottom: 1px solid #d4d4d4;
+  margin-bottom: 15px;
+}
+
+.email-form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.email-form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 120px;
+}
+
+.email-label {
+  color: #008236;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.email-form-group input,
+.email-form-group select {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+  background: white;
+}
+
+.email-form-group input:focus,
+.email-form-group select:focus {
+  outline: none;
+  border-color: #008236;
+  box-shadow: 0 0 0 2px rgba(0, 130, 54, 0.1);
+}
+
+/* Checkboxes */
+
+.empresa-email-checkboxes {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  column-gap: 24px !important;
+  row-gap: 8px !important;
+  margin: 8px 0 14px 0 !important;
+  align-items: center !important;
+  padding-left: 4px !important;
+}
+
+.empresa-email-checkbox {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  color: #404040 !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.empresa-email-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #008236;
+  margin: 0 4px 0 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.empresa-email-checkbox span {
+  user-select: none !important;
+  line-height: 18px !important;
+}
+
+/* Botão Adicionar */
+.email-add-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
+.email-add-btn,
+.add-email-btn {
+  height: 28px;
+  min-width: 90px;
+  background: #008236 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.email-add-btn:hover,
+.add-email-btn:hover {
+  background: #016630 !important;
+}
+
+/* Tabela Email */
+.email-table-wrapper {
+  margin-top: 15px;
+}
+
+.email-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+
+.email-table th {
+  background: #fff;
+  color: #008236;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 6px;
+  border-top: 1px solid #D4D4D4;
+  border-bottom: 1px solid #D4D4D4;
+  font-size: 10px;
+  text-transform: none;
+}
+
+.email-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #F0F0F0;
+  color: #404040;
+  text-align: center;
+  font-size: 11px;
+}
+
+.email-table th:nth-child(1) { width: 180px; }
+.email-table th:nth-child(2) { width: 150px; }
+.email-table th:nth-child(3) { width: 80px; }
+.email-table th:nth-child(4) { width: 100px; }
+.email-table th:nth-child(5) { width: 80px; }
+.email-table th:nth-child(6) { width: 100px; }
+.email-table th:nth-child(7) { width: 80px; }
+.email-table th:nth-child(8) { width: 100px; }
+
+.email-table .table-icon {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.email-table .table-icon {
+  text-align: center;
+}
+
+.icon-check {
+  color: #008236;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.icon-close {
+  color: #c10007;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.email-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+.email-table tr:last-child td {
+  border-bottom: none;
+}
+.email-table .empty-row {
+  text-align: center;
+  color: #b0b0b0;
+  height: 28px;
+}
+/* --- TELEFONE TABLE --- */
+.telefone-table-wrapper {
+  margin-top: 12px;
+}
+.telefone-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+.telefone-table th {
+  color: #008236;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid #D4D4D4;
+}
+.telefone-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #F0F0F0;
+  color: #404040;
+  text-align: center;
+}
+.telefone-table th:nth-child(1) { width: 170px; }
+.telefone-table th:nth-child(2) { width: 70px; }
+.telefone-table th:nth-child(3) { width: 130px; }
+.telefone-table th:nth-child(4) { width: 150px; }
+.telefone-table th:nth-child(5) { width: 190px; }
+.telefone-table th:nth-child(6) { width: auto; }
+.telefone-table tr:last-child td {
+  border-bottom: none;
+}
+.telefone-table .empty-row {
+  text-align: center;
+  color: #b0b0b0;
+  height: 32px;
+}
+/* --- TELEFONE FORM FIELDED LAYOUT --- */
+.telefone-form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.telefone-form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 120px;
+}
+.telefone-label {
+  color: #008236;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.telefone-form-group input,
+.telefone-form-group select {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+}
+.add-telefone-btn-grande {
+  height: 32px;
+  min-width: 110px;
+  background: #008236;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 18px;
+  align-self: flex-end;
+  transition: background 0.2s;
+}
+
+.add-telefone-btn-grande:hover {
+  background: #016630;
+}
+
+.add-telefone-btn {
+  height: 28px;
+  min-width: 90px;
+  background: #008236 !important;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.add-telefone-btn:hover {
+  background: #016630 !important;
+}
+
+/* --- TELEFONE ABA --- */
+.aba-telefone-empresa {
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.telefone-form-section {
+  padding: 10px 0 15px 0;
+  border-bottom: 1px solid #d4d4d4;
+  margin-bottom: 15px;
+}
+
+/* Telefone Table - Novo estilo Figma */
+.telefone-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: white;
+  border: 1px solid #d4d4d4;
+  border-radius: 0;
+}
+
+.telefone-table-header {
+  display: flex;
+  width: 100%;
+  height: 24px;
+  background: white;
+  border-bottom: 1px solid #d4d4d4;
+  align-items: center;
+}
+
+.telefone-header-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 4px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.telefone-header-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #008236;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.telefone-header-icon {
+  width: 9.417px;
+  height: 4.667px;
+  flex-shrink: 0;
+}
+
+.telefone-header-divider {
+  width: 1px;
+  height: 24px;
+  background: #d4d4d4;
+  flex-shrink: 0;
+}
+
+.telefone-table-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.telefone-table-row {
+  display: flex;
+  width: 100%;
+  height: 32px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+}
+
+.telefone-table-row:last-child {
+  border-bottom: none;
+}
+
+.telefone-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.telefone-cell-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #404040;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.telefone-cell-divider {
+  width: 1px;
+  height: 32px;
+  background: #d4d4d4;
+  flex-shrink: 0;
+}
+
+/* Complemento Tab Styles */
+.complemento-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 10px 5px 10px;
+  background: white;
+}
+
+/* Input with Calendar Icon */
+.input-with-calendar {
+  position: relative;
+}
+
+.input-calendar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-calendar-container input {
+  width: 100%;
+  padding-right: 32px;
+}
+
+.calendar-icon-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.calendar-icon-btn:hover {
+  opacity: 0.7;
+}
+
+/* Certificado Tab Styles */
+.aba-certificado-empresa {
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.certificado-top-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  border: 1px solid #d4d4d4;
+  background: #fff;
+  max-width: 1180px;
+  margin-left: 0;
+  margin-right: auto;
+}
+.certificado-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.certificado-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.certificado-input-wrapper input {
+  flex: 1;
+  height: 26px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+}
+.icon-btn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.icon-btn:hover {
+  border-color: #008236;
+  background: #f8fff9;
+}
+.ok-certificado-btn {
+  height: 28px;
+  min-width: 50px;
+  background: #008236;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: background 0.2s;
+}
+.ok-certificado-btn:hover {
+  background: #016630;
+}
+.certificado-table-wrapper {
+  margin-top: 4px;
+}
+.certificado-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  border: 1px solid #d4d4d4;
+}
+.certificado-table th {
+  background: #fff;
+  color: #008236;
+  font-weight: 600;
+  text-align: center;
+  padding: 4px 8px;
+  border-bottom: 1px solid #D4D4D4;
+  border-right: 1px solid #d4d4d4;
+}
+.certificado-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #F0F0F0;
+  color: #404040;
+  text-align: center;
+  border-right: 1px solid #d4d4d4;
+}
+.certificado-table th:last-child,
+.certificado-table td:last-child {
+  border-right: none;
+}
+.certificado-table th:nth-child(1) { width: 220px; }
+.certificado-table th:nth-child(2) { width: 60px; }
+.certificado-table th:nth-child(3) { width: 170px; }
+.certificado-table th:nth-child(4) { width: 170px; }
+.certificado-table th:nth-child(5) { width: 100px; }
+.certificado-table tr:last-child td {
+  border-bottom: none;
+}
+.certificado-table .empty-row {
+  text-align: center;
+  color: #b0b0b0;
+  height: 28px;
+}
+
+/* Logotipo Tab Styles */
+.aba-logotipo-empresa {
+  width: 100%;
+  background: #fff;
+  padding: 10px 20px;
+  margin: -10px; /* Compensa o padding do tab-content */
+  min-height: 200px;
+}
+
+.logotipo-cards-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+.logotipo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logotipo-card-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #008236;
+  text-align: left;
+  margin: 0;
+  line-height: 10px;
+}
+
+.logotipo-card-preview {
+  width: 240px;
+  height: 130px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.logotipo-card-preview:hover {
+  border-color: #008236;
+}
+
+.logotipo-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.logotipo-add-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.cadastrar-empresa {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: white;
+  position: relative;
+}
+
+.success-message-overlay {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.success-message {
+  background: #b9f8cf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.success-message svg {
+  flex-shrink: 0;
+}
+
+.success-message p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #016630;
+  margin: 0;
+}
+
+/* Botões Cancelar e Salvar */
+.cadastrar-empresa .action-btn.cancel-btn,
+.cadastrar-empresa .action-btn.save-btn {
+  width: 110px;
+  height: 28px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background: white;
+  flex-shrink: 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 48px;
+}
+
+.input-wrapper label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #008236;
+  letter-spacing: -0.048px;
+  margin-bottom: 2px;
+}
+
+.input-wrapper > input,
+.input-wrapper > select {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  letter-spacing: -0.048px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+  border-color: #008236;
+}
+
+.input-wrapper .disabled-input {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+/* RG / IE com checkbox Isento */
+.rg-ie-wrapper {
+  position: relative;
+}
+
+.rg-ie-wrapper .rg-ie-field {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  background: white;
+  overflow: visible;
+}
+
+.rg-ie-wrapper .rg-ie-field input[type="text"] {
+  flex: 1;
+  border: none;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 4px 0 0 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  letter-spacing: -0.048px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.rg-ie-wrapper .rg-ie-field .isento-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 0 5px;
+  height: 100%;
+  order: 2;
+}
+
+.rg-ie-wrapper .rg-ie-field .isento-checkbox {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  border: 1px solid #d4d4d4;
+  cursor: pointer;
+  margin: 40px;
+  padding: 0;
+}
+
+.rg-ie-wrapper .rg-ie-field .isento-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000;
+  letter-spacing: -0.048px;
+  text-transform: none !important;
+  cursor: pointer;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Inner section com tabs */
+.inner-section {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tabs-container {
+  display: flex;
+  padding: 0 10px;
+  border-bottom: 1px solid #008236;
+}
+
+.tab {
+  background: white;
+  border: none;
+  padding: 2px 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  letter-spacing: -0.048px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 0;
+}
+
+.tab:hover {
+  background: #f5f5f5;
+}
+
+.tab.active {
+  background: #008236;
+  color: white;
+}
+
+/* Conteúdo das tabs */
+.tab-content {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 5px;
+  flex: 1;
+  overflow: auto;
+}
+
+/* Formulário de endereço */
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.add-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0;
+}
+
+.add-btn {
+  background: #008236;
+  border: none;
+  border-radius: 4px;
+  padding: 0 10px;
+  height: 28px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: white;
+  letter-spacing: -0.048px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #016630;
+}
+
+/* Tabela de endereços */
+.address-table-wrapper {
+  flex: 1;
+  overflow: auto;
+  border-top: 1px solid #d4d4d4;
+}
+
+.address-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.address-table thead {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.address-table th {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  color: #008236;
+  text-align: center;
+  padding: 4px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.address-table td {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 4px;
+  height: 32px;
+  background: white;
+}
+
+.address-table tbody tr {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.address-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Formulário de telefone */
+.telefone-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.telefone-table-wrapper {
+  flex: 1;
+  overflow: auto;
+  border-top: 1px solid #d4d4d4;
+}
+
+.telefone-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.telefone-table thead {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.telefone-table th {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  color: #008236;
+  text-align: center;
+  padding: 4px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.telefone-table td {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 4px;
+  height: 32px;
+  background: white;
+}
+
+.telefone-table tbody tr {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.telefone-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Formulário de e-mail */
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.email-table-wrapper {
+  flex: 1;
+  overflow: auto;
+  border-top: 1px solid #d4d4d4;
+}
+
+.email-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.email-table thead {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.email-table th {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  color: #008236;
+  text-align: center;
+  padding: 4px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.email-table td {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #404040;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 4px;
+  height: 32px;
+  background: white;
+}
+
+.email-table tbody tr {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.email-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.empty-row {
+  text-align: center;
+}
+/* --- FECHAMENTO ABA --- */
+.aba-fechamento-empresa {
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.fechamento-filtros {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  padding: 10px 0;
+}
+
+.filtro-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.filtro-group label {
+  color: #008236;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.filtro-group select {
+  height: 28px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 0 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #404040;
+  background: white;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.filtro-group select:hover {
+  border-color: #008236;
+}
+
+.filtro-group select:focus {
+  outline: none;
+  border-color: #008236;
+  box-shadow: 0 0 0 2px rgba(0, 130, 54, 0.1);
+}
